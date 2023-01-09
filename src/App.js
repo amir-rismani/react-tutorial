@@ -1,9 +1,11 @@
+import Products from "./components/Products/Products";
+
 const App = () => {
-    return ( 
+    return (
         <div>
-            First React App!
+            <Products />
         </div>
-     );
+    );
 }
- 
+
 export default App;
