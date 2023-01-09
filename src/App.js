@@ -1,11 +1,13 @@
 import { Component } from "react";
-import Products from "./components/Products/Products";
+import HookCounter from "./components/Counter/HookCounter";
+// import Products from "./components/Products/Products";
 // Class base component
 class App extends Component {
     render() {
         return (
             <div>
-                <Products />
+                {/* <Products /> */}
+                <HookCounter />
             </div>
         );
     }
@@ -16,6 +18,7 @@ class App extends Component {
 //     return (
 //         <div>
 //             <Products />
+//             <HookCounter />
 //         </div>
 //     );
 // }
