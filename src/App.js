@@ -1,4 +1,5 @@
 import { Component } from "react";
+import ClassCounter from "./components/Counter/ClassCounter";
 import HookCounter from "./components/Counter/HookCounter";
 // import Products from "./components/Products/Products";
 // Class base component
@@ -7,7 +8,8 @@ class App extends Component {
         return (
             <div>
                 {/* <Products /> */}
-                <HookCounter />
+                {/* <HookCounter /> */}
+                <ClassCounter />
             </div>
         );
     }
@@ -19,6 +21,7 @@ class App extends Component {
 //         <div>
 //             <Products />
 //             <HookCounter />
+//             <ClassCounter />
 //         </div>
 //     );
 // }
