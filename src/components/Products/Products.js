@@ -1,6 +1,10 @@
 import { Component, useState } from "react";
 import Product from "../Product/Product";
-import "./Products.css"
+// Standard styling
+// import "./Products.css"
+// Modular styling
+import styles from "./Products.module.css"
+
 // Function based component
 // Version 16.8 >
 // 2018 >
@@ -24,7 +28,8 @@ const Products = () => {
     return (
         <div className="products">
             <h1>Products</h1>
-            <div className="products__container">
+            {/* <div className="products__container"> */}
+            <div className={styles.container}>
                 {products.map(product => <Product name={product.name} price={product.price} key={product.id} />)}
             </div>
             <button onClick={changePriceHandler}>Change price</button>

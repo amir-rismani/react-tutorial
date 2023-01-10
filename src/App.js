@@ -4,12 +4,14 @@ import HookArray from "./components/HookArray";
 import HookCounter from "./components/HookCounter";
 import HookObject from "./components/HookObject";
 import Products from "./components/Products/Products";
-import "./App.css"
+// import "./App.css"
+import styles from "./App.module.css"
 // Class base component
 class App extends Component {
     render() {
         return (
-            <div className="container">
+            // <div className="container">
+            <div className={styles.container}>
                 <Products />
                 {/* <Hook Counter /> */}
                 {/* <ClassCounter /> */}
