@@ -1,6 +1,6 @@
 import { Component, useState } from "react";
 import Product from "../Product/Product";
-
+import "./Products.css"
 // Function based component
 // Version 16.8 >
 // 2018 >
@@ -22,9 +22,11 @@ const Products = () => {
     }
 
     return (
-        <div>
+        <div className="products">
             <h1>Products</h1>
-            {products.map(product => <Product name={product.name} price={product.price} key={product.id} />)}
+            <div className="products__container">
+                {products.map(product => <Product name={product.name} price={product.price} key={product.id} />)}
+            </div>
             <button onClick={changePriceHandler}>Change price</button>
         </div>
     );
