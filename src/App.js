@@ -1,15 +1,17 @@
 import { Component } from "react";
-import ClassCounter from "./components/Counter/ClassCounter";
-import HookCounter from "./components/Counter/HookCounter";
-// import Products from "./components/Products/Products";
+import ClassCounter from "./components/ClassCounter";
+import HookCounter from "./components/HookCounter";
+import HookObject from "./components/HookObject";
+import Products from "./components/Products/Products";
 // Class base component
 class App extends Component {
     render() {
         return (
             <div>
                 {/* <Products /> */}
-                {/* <HookCounter /> */}
-                <ClassCounter />
+                {/* <Hook Counter /> */}
+                {/* <ClassCounter /> */}
+                <HookObject />
             </div>
         );
     }
