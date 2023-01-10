@@ -1,5 +1,6 @@
 import { Component } from "react";
 import ClassCounter from "./components/ClassCounter";
+import HookArray from "./components/HookArray";
 import HookCounter from "./components/HookCounter";
 import HookObject from "./components/HookObject";
 import Products from "./components/Products/Products";
@@ -11,7 +12,8 @@ class App extends Component {
                 {/* <Products /> */}
                 {/* <Hook Counter /> */}
                 {/* <ClassCounter /> */}
-                <HookObject />
+                {/* <HookObject /> */}
+                <HookArray />
             </div>
         );
     }
