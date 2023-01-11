@@ -82,7 +82,7 @@ class Products extends Component {
         return (
             <div>
                 <h1>Products</h1>
-                {this.state.products.map(product => <Product name={product.name} price={product.price} key={product.id} />)}
+                {this.state.products.map(product => <Product name={product.name} price={product.price} key={product.id} click={() => this.changePriceHandler(product.id)} />)}
                 {/* Pass argument to event */}
                 {/* 1. Using bind method */}
                 {/* 2. Using arrow function */}
