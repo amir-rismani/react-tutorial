@@ -63,7 +63,7 @@ class Products extends Component {
     //     })
     // }
 
-    changePriceHandler() {
+    changePriceHandler(id) {
         // `this` keyword is undefined
         //  To solve this problem, we must bind `this` keyword in the constructor
         //  Or using arrow function instead.
@@ -74,6 +74,8 @@ class Products extends Component {
                 { id: 3, name: 'JavaScript', price: '100 $' }
             ]
         })
+
+        console.log(id)
     }
 
     render() {
@@ -81,7 +83,11 @@ class Products extends Component {
             <div>
                 <h1>Products</h1>
                 {this.state.products.map(product => <Product name={product.name} price={product.price} key={product.id} />)}
-                <button onClick={this.changePriceHandler}>Change price</button>
+                {/* Pass argument to event */}
+                {/* 1. Using bind method */}
+                {/* 2. Using arrow function */}
+                {/* <button onClick={this.changePriceHandler.bind(this, 72)}>Change price</button> */}
+                <button onClick={() => this.changePriceHandler(72)}>Change price</button>
             </div>
         );
     }
