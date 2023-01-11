@@ -87,6 +87,9 @@ class Products extends Component {
                 {/* 1. Using bind method */}
                 {/* 2. Using arrow function */}
                 {/* <button onClick={this.changePriceHandler.bind(this, 72)}>Change price</button> */}
+                <Product name="Odoo framework" price="120" key="87451">
+                    <p>discount: 15%</p>
+                </Product>
                 <button onClick={() => this.changePriceHandler(72)}>Change price</button>
             </div>
         );

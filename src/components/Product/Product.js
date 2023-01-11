@@ -8,6 +8,8 @@ const Product = (props) => {
             <p className={styles.name}>name: {props.name}</p>
             {/* <p className="product__price">price: {props.price}</p> */}
             <p className={styles.price}>price: {props.price}</p>
+            {/* Nested or children props */}
+            {props.children}
         </div>
     );
 }
