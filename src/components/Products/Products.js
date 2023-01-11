@@ -1,4 +1,4 @@
-import { Component, useState } from "react";
+import { Component, Fragment, useState } from "react";
 import Product from "../Product/Product";
 // Standard styling
 // import "./Products.css"
@@ -80,7 +80,10 @@ class Products extends Component {
 
     render() {
         return (
-            <div>
+            // Use fragment instead container tag
+            // Fragment not displaying as a tag
+            <Fragment>
+                {/* <div> */}
                 <h1>Products</h1>
                 {this.state.products.map(product => <Product name={product.name} price={product.price} key={product.id} click={() => this.changePriceHandler(product.id)} />)}
                 {/* Pass argument to event */}
@@ -91,7 +94,8 @@ class Products extends Component {
                     <p>discount: 15%</p>
                 </Product>
                 <button onClick={() => this.changePriceHandler(72)}>Change price</button>
-            </div>
+                {/* </div> */}
+            </Fragment>
         );
     }
 }
