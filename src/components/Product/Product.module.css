@@ -1,9 +1,12 @@
-.container{
+.product{
     border: 1px solid #ccc;
     border-radius: 5px;
     margin: 5px 0;
     padding: 15px;
     flex-grow: 1;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 }
 
 .name{
@@ -13,4 +16,8 @@
 .price{
     font-weight: bold;
     color: green;
+}
+.delete{
+    color: red;
+    cursor: pointer;
 }

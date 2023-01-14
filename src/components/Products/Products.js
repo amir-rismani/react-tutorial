@@ -3,7 +3,7 @@ import Product from "../Product/Product";
 // Standard styling
 // import "./Products.css"
 // Modular styling
-import styles from "./Products.module.css"
+// import styles from "./Products.module.css"
 
 // Function based component
 // Version 16.8 >
@@ -49,11 +49,11 @@ class Products extends Component {
 
     constructor(props) {
         super(props)
-        this.changePriceHandler = this.changePriceHandler.bind(this);
+        this.removeHandler = this.removeHandler.bind(this);
     }
 
     // Using arrow function
-    // changePriceHandler = () => {
+    // removeHandler = (id) => {
     //     this.setState({
     //         products: [
     //             { id: 1, name: 'React', price: '120 $' },
@@ -63,19 +63,14 @@ class Products extends Component {
     //     })
     // }
 
-    changePriceHandler(id) {
+    removeHandler(id) {
         // `this` keyword is undefined
         //  To solve this problem, we must bind `this` keyword in the constructor
         //  Or using arrow function instead.
+        const filteredProducts = this.state.products.filter(product => product.id !== id);
         this.setState({
-            products: [
-                { id: 1, name: 'React', price: '120 $' },
-                { id: 2, name: 'Vue', price: '120 $' },
-                { id: 3, name: 'JavaScript', price: '100 $' }
-            ]
+            products: filteredProducts
         })
-
-        console.log(id)
     }
 
     render() {
@@ -85,15 +80,16 @@ class Products extends Component {
             <Fragment>
                 {/* <div> */}
                 <h1>Products</h1>
-                {this.state.products.map(product => <Product name={product.name} price={product.price} key={product.id} click={() => this.changePriceHandler(product.id)} />)}
+                {/* Raising Event: Pass a function into a component; and then, when the component handles an event, it simply calls the function handler*/}
+                {/* Raising Event must be use where is states. */}
+                {this.state.products.map(product => <Product name={product.name} price={product.price} key={product.id} removeHandler={() => this.removeHandler(product.id)} />)}
                 {/* Pass argument to event */}
                 {/* 1. Using bind method */}
                 {/* 2. Using arrow function */}
                 {/* <button onClick={this.changePriceHandler.bind(this, 72)}>Change price</button> */}
-                <Product name="Odoo framework" price="120" key="87451">
+                {/* <Product name="Odoo framework" price="120" key="87451" removeHandler={() => this.removeHandler("87451")} >
                     <p>discount: 15%</p>
-                </Product>
-                <button onClick={() => this.changePriceHandler(72)}>Change price</button>
+                </Product> */}
                 {/* </div> */}
             </Fragment>
         );
