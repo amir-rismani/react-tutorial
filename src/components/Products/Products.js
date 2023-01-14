@@ -41,9 +41,9 @@ import Product from "../Product/Product";
 class Products extends Component {
     state = {
         products: [
-            { id: 1, name: 'React', price: '99 $' },
-            { id: 2, name: 'Vue', price: '99 $' },
-            { id: 3, name: 'JavaScript', price: '90 $' }
+            { id: 1, name: 'React', price: '99 $', quantity: 12 },
+            { id: 2, name: 'Vue', price: '99 $', quantity: 8 },
+            { id: 3, name: 'JavaScript', price: '90 $', quantity: 4 }
         ]
     }
 
@@ -73,6 +73,28 @@ class Products extends Component {
         })
     }
 
+    decreamentHandler(id) {
+        const products = this.state.products;
+        const findedProduct = products.find(product => product.id === id);
+        if (findedProduct.quantity === 1) {
+            this.removeHandler(id);
+            return
+        }
+        findedProduct.quantity--;
+        this.setState({
+            products
+        })
+    }
+
+    increamentHandler(id) {
+        const products = this.state.products;
+        const findedProduct = products.find(product => product.id === id);
+        findedProduct.quantity++;
+        this.setState({
+            products
+        })
+    }
+
     render() {
         return (
             // Use fragment instead container tag
@@ -82,7 +104,7 @@ class Products extends Component {
                 <h1>Products</h1>
                 {/* Raising Event: Pass a function into a component; and then, when the component handles an event, it simply calls the function handler*/}
                 {/* Raising Event must be use where is states. */}
-                {this.state.products.map(product => <Product name={product.name} price={product.price} key={product.id} removeHandler={() => this.removeHandler(product.id)} />)}
+                {this.state.products.map(product => <Product product={product} key={product.id} onRemove={() => this.removeHandler(product.id)} onDecreament={() => this.decreamentHandler(product.id)} onIncreament={() => this.increamentHandler(product.id)} />)}
                 {/* Pass argument to event */}
                 {/* 1. Using bind method */}
                 {/* 2. Using arrow function */}

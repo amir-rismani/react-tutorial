@@ -17,6 +17,24 @@
     font-weight: bold;
     color: green;
 }
+.quantity{
+    display: flex;
+}
+.quantity .button{
+background-color: #eee;
+width: 20px;
+height: 20px;
+border-radius: 100%;
+display: flex;
+align-items: center;
+justify-content: center;
+cursor: pointer;
+outline: none;
+border: none;
+}
+.quantity .value{
+margin: auto 8px;
+}
 .delete{
     color: red;
     cursor: pointer;
