@@ -1,15 +1,24 @@
 // import "./Product.css";
+import { useState } from "react";
 import styles from "./Product.module.css"
 const Product = (props) => {
+    // const [userName, setUserName] = useState("");
+    // const changeHandler = (event) => {
+    //     setUserName(event.target.value)
+    // }
     return (
         // <div className="product">
         <div className={styles.product} onClick={props.click}>
+            {/* Controlled component - Internal state */}
+            {/* <input type="text" onChange={changeHandler} value={userName} /> */}
             {/* <p className="product__name">name: {props.product.name}</p> */}
             <p className={styles.name}>name: {props.product.name}</p>
             {/* <p className="product__price">price: {props.product.price}</p> */}
             <p className={styles.price}>price: {props.product.price}</p>
             {/* Nested or children props */}
             {props.children}
+            {/* Controlled component - External state */}
+            <input type="text" onChange={props.onChange} value={props.product.name} />
             <span className={styles.quantity}>
                 <button className={styles.button} onClick={props.onDecreament}>-</button>
                 <span className={styles.value}>{props.product.quantity}</span>

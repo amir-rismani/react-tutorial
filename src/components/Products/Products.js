@@ -50,6 +50,9 @@ class Products extends Component {
     constructor(props) {
         super(props)
         this.removeHandler = this.removeHandler.bind(this);
+        this.decreamentHandler = this.decreamentHandler.bind(this);
+        this.increamentHandler = this.increamentHandler.bind(this);
+        this.removeHandler = this.removeHandler.bind(this);
     }
 
     // Using arrow function
@@ -74,7 +77,7 @@ class Products extends Component {
     }
 
     decreamentHandler(id) {
-        const products = this.state.products;
+        const products = [...this.state.products];
         const findedProduct = products.find(product => product.id === id);
         if (findedProduct.quantity === 1) {
             this.removeHandler(id);
@@ -87,7 +90,7 @@ class Products extends Component {
     }
 
     increamentHandler(id) {
-        const products = this.state.products;
+        const products = [...this.state.products];
         const findedProduct = products.find(product => product.id === id);
         findedProduct.quantity++;
         this.setState({
@@ -95,6 +98,13 @@ class Products extends Component {
         })
     }
 
+    changeHandler(event, id) {
+        console.log(event, id)
+        const products = [...this.state.products];
+        const findedProduct = products.find(product => product.id === id);
+        findedProduct.name = event.target.value;
+        this.setState({ products })
+    }
     render() {
         return (
             // Use fragment instead container tag
@@ -104,7 +114,18 @@ class Products extends Component {
                 <h1>Products</h1>
                 {/* Raising Event: Pass a function into a component; and then, when the component handles an event, it simply calls the function handler*/}
                 {/* Raising Event must be use where is states. */}
-                {this.state.products.length ? this.state.products.map(product => <Product product={product} key={product.id} onRemove={() => this.removeHandler(product.id)} onDecreament={() => this.decreamentHandler(product.id)} onIncreament={() => this.increamentHandler(product.id)} />) : <div>Product is not exist...</div>}
+                {
+                    this.state.products.length ?
+                        this.state.products.map(product =>
+                            <Product
+                                product={product}
+                                key={product.id}
+                                onRemove={() => this.removeHandler(product.id)}
+                                onDecreament={() => this.decreamentHandler(product.id)}
+                                onIncreament={() => this.increamentHandler(product.id)}
+                                onChange={(event) => this.changeHandler(event, product.id)}
+                            />) :
+                        <div>Product is not exist...</div>}
                 {/* Pass argument to event */}
                 {/* 1. Using bind method */}
                 {/* 2. Using arrow function */}
