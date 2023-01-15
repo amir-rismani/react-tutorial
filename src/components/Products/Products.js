@@ -108,9 +108,11 @@ class Products extends Component {
     render() {
         // Conditional Rendering
         // 1. Use If statement
-        // 2. Use ternary operator
-        // 3. Use inline If with Logical && Operator
         // if (!this.state.products.length) return <div>Product is not exist...</div>
+        // 2. Use ternary operator
+        // !this.state.products.length ? <div>Product is not exist...</div> : <div>Product is exist...</div>
+        // 3. Use inline If with Logical && Operator
+        // this.state.products.length && <div>Product is exist...</div>
         return (
             // Use fragment instead container tag
             // Fragment not displaying as a tag

@@ -1,6 +1,7 @@
 // import "./Product.css";
 import { useState } from "react";
 import styles from "./Product.module.css"
+import { BiTrash } from "react-icons/bi";
 const Product = (props) => {
     // const [userName, setUserName] = useState("");
     // const changeHandler = (event) => {
@@ -20,7 +21,9 @@ const Product = (props) => {
             {/* Controlled component - External state */}
             <input type="text" onChange={props.onChange} value={props.product.name} />
             <span className={styles.quantity}>
-                <button className={styles.button} onClick={props.onDecreament}>-</button>
+                <button className={styles.button} onClick={props.onDecreament}>
+                    {props.product.quantity > 1 ? '-' : <BiTrash color="red" />}
+                </button>
                 <span className={styles.value}>{props.product.quantity}</span>
                 <button className={styles.button} onClick={props.onIncreament}>+</button>
             </span>
