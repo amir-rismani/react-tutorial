@@ -21,8 +21,8 @@ const Product = (props) => {
             {/* Controlled component - External state */}
             <input type="text" onChange={props.onChange} value={props.product.name} />
             <span className={styles.quantity}>
-                <button className={styles.button} onClick={props.onDecreament}>
-                    {props.product.quantity > 1 ? '-' : <BiTrash color="red" />}
+                <button className={`${styles.button} ${props.product.quantity === 1 && styles.remove}`} onClick={props.onDecreament}>
+                    {props.product.quantity > 1 ? '-' : <BiTrash />}
                 </button>
                 <span className={styles.value}>{props.product.quantity}</span>
                 <button className={styles.button} onClick={props.onIncreament}>+</button>

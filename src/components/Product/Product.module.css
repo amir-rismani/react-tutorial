@@ -30,7 +30,7 @@ align-items: center;
 justify-content: center;
 cursor: pointer;
 outline: none;
-border: none;
+border: 1px solid #ccc;
 }
 .quantity .value{
 margin: auto 8px;
@@ -38,4 +38,9 @@ margin: auto 8px;
 .delete{
     color: red;
     cursor: pointer;
+}
+
+.remove{
+    color: red;
+    border: 1px solid red !important;
 }
