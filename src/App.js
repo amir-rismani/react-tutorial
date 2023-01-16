@@ -62,20 +62,21 @@ class App extends Component {
 
     render() {
         return (
-            // <div className="container">
-            <div className={styles.container}>
+            <div>
                 <NavBar totalItems={this.state.products.length} />
-                <Products
-                    products={this.state.products}
-                    onRemove={this.removeHandler}
-                    onDecreament={this.decreamentHandler}
-                    onIncreament={this.increamentHandler}
-                    onChange={this.changeHandler}
-                />
-                {/* <Hook Counter /> */}
-                {/* <ClassCounter /> */}
-                {/* <HookObject /> */}
-                {/* <HookArray /> */}
+                <div className={styles.container}>
+                    <Products
+                        products={this.state.products}
+                        onRemove={this.removeHandler}
+                        onDecreament={this.decreamentHandler}
+                        onIncreament={this.increamentHandler}
+                        onChange={this.changeHandler}
+                    />
+                    {/* <Hook Counter /> */}
+                    {/* <ClassCounter /> */}
+                    {/* <HookObject /> */}
+                    {/* <HookArray /> */}
+                </div>
             </div>
         );
     }

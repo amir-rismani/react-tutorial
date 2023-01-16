@@ -3,7 +3,7 @@ import Product from "../Product/Product";
 // Standard styling
 // import "./Products.css"
 // Modular styling
-// import styles from "./Products.module.css"
+import styles from "./Products.module.css"
 
 // Function based component
 // Version 16.8 >
@@ -39,13 +39,13 @@ import Product from "../Product/Product";
 
 // Class based component
 class Products extends Component {
-    constructor(props) {
-        super(props)
-        // this.removeHandler = this.removeHandler.bind(this);
-        // this.decreamentHandler = this.decreamentHandler.bind(this);
-        // this.increamentHandler = this.increamentHandler.bind(this);
-        // this.removeHandler = this.removeHandler.bind(this);
-    }
+    // constructor(props) {
+    //     super(props)
+    // this.removeHandler = this.removeHandler.bind(this);
+    // this.decreamentHandler = this.decreamentHandler.bind(this);
+    // this.increamentHandler = this.increamentHandler.bind(this);
+    // this.removeHandler = this.removeHandler.bind(this);
+    // }
 
     // state = {
     //     products: [
@@ -113,25 +113,28 @@ class Products extends Component {
         // !this.state.products.length ? <div>Product is not exist...</div> : <div>Product is exist...</div>
         // 3. Use inline If with Logical && Operator
         // this.state.products.length && <div>Product is exist...</div>
+
+        // Object destructuring
+        const { products, onRemove, onChange, onIncreament, onDecreament } = this.props;
         return (
             // Use fragment instead container tag
-            // Fragment not displaying as a tag
+            // Fragment not displaying as a tag   
             <Fragment>
                 {/* <div> */}
-                <h1>Products</h1>
+                <h2>Cart</h2>
                 {/* Raising Event: Pass a function into a component; and then, when the component handles an event, it simply calls the function handler*/}
                 {/* Raising Event must be use where is states. */}
                 {
-                    this.props.products.length ?
-                        this.props.products.map(product =>
-                            
+                    products.length ?
+                        products.map(product =>
+
                             <Product
                                 product={product}
                                 key={product.id}
-                                onRemove={() => this.props.onRemove(product.id)}
-                                onDecreament={() => this.props.onDecreament(product.id)}
-                                onIncreament={() => this.props.onIncreament(product.id)}
-                                onChange={(event) => this.props.onChange(event, product.id)}
+                                onRemove={() => onRemove(product.id)}
+                                onDecreament={() => onDecreament(product.id)}
+                                onIncreament={() => onIncreament(product.id)}
+                                onChange={(event) => onChange(event, product.id)}
                             />) :
                         <div>Product is not exist...</div>}
                 {/* Pass argument to event */}
@@ -142,7 +145,7 @@ class Products extends Component {
                     <p>discount: 15%</p>
                 </Product> */}
                 {/* </div> */}
-            </Fragment>
+            </Fragment >
         );
     }
 }

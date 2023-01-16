@@ -1,4 +1,4 @@
 .container{
-    display: flex;
-    gap: 5px;
+    max-width: 50%;
+    margin: auto;
 }
