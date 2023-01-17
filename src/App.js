@@ -46,32 +46,69 @@ class App extends Component {
     }
 
     decreamentHandler = (id) => {
-        const products = [...this.state.products];
-        const findedProduct = products.find(product => product.id === id);
-        if (findedProduct.quantity === 1) {
+        // This approach in false. because this mutating state.
+
+        // const products = [...this.state.products];
+        // const findedProduct = products.find(product => product.id === id);
+        // if (findedProduct.quantity === 1) {
+        //     this.removeHandler(id);
+        //     return
+        // }
+        // findedProduct.quantity--;
+        // this.setState({
+        //     products
+        // })
+
+        const index = this.state.products.findIndex(product => product.id === id);
+        const product = { ...this.state.products[index] };
+        if (product.quantity === 1) {
             this.removeHandler(id);
             return
         }
-        findedProduct.quantity--;
-        this.setState({
-            products
-        })
+        product.quantity--;
+        const products = [...this.state.products];
+        products[index] = product;
+        this.setState({ products });
     }
 
     increamentHandler = (id) => {
+        // This approach in false. because this mutating state.
+
+        // const products = [...this.state.products];
+        // const findedProduct = products.find(product => product.id === id);
+        // findedProduct.quantity++;
+        // this.setState({
+        //     products
+        // })
+
+        // This approach is true.
+        // 1. Find index item on state.
+        const index = this.state.products.findIndex(product => product.id === id);
+
+        // 2. Clone product item on state and increament quantity.
+        const product = { ...this.state.products[index] };
+        product.quantity++;
+
+        // 3. Clone products on state and replace changed product.
         const products = [...this.state.products];
-        const findedProduct = products.find(product => product.id === id);
-        findedProduct.quantity++;
-        this.setState({
-            products
-        })
+        products[index] = product;
+
+        // 4. Update state.
+        this.setState({ products });
     }
 
     changeHandler = (event, id) => {
+        // This approach in false. because this mutating state.
+
+        // const products = [...this.state.products];
+        // const findedProduct = products.find(product => product.id === id);
+        // findedProduct.name = event.target.value;
+        const index = this.state.products.findIndex(product => product.id === id);
+        const product = { ...this.state.products[index] };
+        product.name = event.target.value;
         const products = [...this.state.products];
-        const findedProduct = products.find(product => product.id === id);
-        findedProduct.name = event.target.value;
-        this.setState({ products })
+        products[index] = product;
+        this.setState({ products });
     }
 
 
@@ -107,6 +144,7 @@ class App extends Component {
     // 3th method lifecycle - Updating
     componentDidUpdate(prevProps, prevState) {
         console.log('App.js componentDidUpdate.')
+        console.log('App.js', prevState)
     }
 
 }
