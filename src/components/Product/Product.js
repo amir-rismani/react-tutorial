@@ -8,6 +8,9 @@ const Product = ({ click, product, onRemove, onDecreament, onIncreament, onChang
     // const changeHandler = (event) => {
     //     setUserName(event.target.value)
     // }
+    
+    console.log('Product.js render.')
+
     return (
         // <div className="product">
         <div className={styles.product} onClick={click}>

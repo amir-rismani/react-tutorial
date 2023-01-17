@@ -9,6 +9,21 @@ import styles from "./App.module.css"
 import NavBar from "./components/NavBar/NavBar";
 // Class base component
 class App extends Component {
+
+
+    // React class component lifcycle
+    // 1st method lifecycle - Mounting
+    constructor(props) {
+        super(props);
+        console.log("App.js constractor.");
+    }
+
+    // 3th method lifecycle - Mounting
+    componentDidMount() {
+        console.log("App.js componentDidMount.");
+        // Suitable for sending http requests
+    }
+
     // Lifting State Up
     // Often, several components need to reflect the same changing data.
     // lifting the shared state up to their closest common ancestor.
@@ -60,7 +75,9 @@ class App extends Component {
     }
 
 
+    // 2nd method lifecycle - Mounting && Updating
     render() {
+        console.log('App.js render.')
         return (
             <div>
                 <NavBar totalItems={this.state.products.length} />
@@ -80,6 +97,18 @@ class App extends Component {
             </div>
         );
     }
+
+    // 1st method lifecycle - Updating
+    shouldComponentUpdate(nextProps, nextState) {
+        console.log('App.js shouldComponentUpdate.')
+        return true
+    }
+
+    // 3th method lifecycle - Updating
+    componentDidUpdate(prevProps, prevState) {
+        console.log('App.js componentDidUpdate.')
+    }
+
 }
 
 // Function base component

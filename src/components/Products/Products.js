@@ -105,7 +105,14 @@ class Products extends Component {
     //     this.setState({ products })
     // }
 
+    constructor(props) {
+        super(props);
+        console.log("Products.js constractor.");
+    }
+
     render() {
+        console.log("Products.js render.");
+
         // Conditional Rendering
         // 1. Use If statement
         // if (!this.state.products.length) return <div>Product is not exist...</div>
@@ -147,6 +154,11 @@ class Products extends Component {
                 {/* </div> */}
             </Fragment >
         );
+    }
+
+    componentDidMount() {
+        console.log("Products.js componentDidMount.");
+        // Suitable for sending http requests
     }
 }
 
