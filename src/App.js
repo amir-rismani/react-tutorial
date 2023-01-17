@@ -12,13 +12,13 @@ class App extends Component {
 
 
     // React class component lifcycle
-    // 1st method lifecycle - Mounting
+    // 1st lifecycle method - Mounting
     constructor(props) {
         super(props);
         console.log("App.js constractor.");
     }
 
-    // 3th method lifecycle - Mounting
+    // 3th lifecycle method - Mounting
     componentDidMount() {
         console.log("App.js componentDidMount.");
         // Suitable for sending http requests
@@ -112,7 +112,7 @@ class App extends Component {
     }
 
 
-    // 2nd method lifecycle - Mounting && Updating
+    // 2nd lifecycle method - Mounting && Updating
     render() {
         console.log('App.js render.')
         return (
@@ -135,18 +135,17 @@ class App extends Component {
         );
     }
 
-    // 1st method lifecycle - Updating
+    // 1st lifecycle method - Updating
     shouldComponentUpdate(nextProps, nextState) {
         console.log('App.js shouldComponentUpdate.')
         return true
     }
 
-    // 3th method lifecycle - Updating
+    // 3th lifecycle method - Updating
     componentDidUpdate(prevProps, prevState) {
         console.log('App.js componentDidUpdate.')
         console.log('App.js', prevState)
     }
-
 }
 
 // Function base component
