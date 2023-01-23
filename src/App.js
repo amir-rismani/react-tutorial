@@ -7,6 +7,9 @@ import Products from "./components/Products/Products";
 // import "./App.css"
 import styles from "./App.module.css"
 import NavBar from "./components/NavBar/NavBar";
+import FunctionalCounter from "./components/FunctionalCounter";
+import ClassTimer from "./components/ClassTimer";
+import FunctionalTimer from "./components/FunctionalTimer";
 // Class base component
 class App extends Component {
 
@@ -32,7 +35,8 @@ class App extends Component {
             { id: 1, name: 'React', price: '99 $', quantity: 12 },
             { id: 2, name: 'Vue', price: '99 $', quantity: 8 },
             { id: 3, name: 'JavaScript', price: '90 $', quantity: 4 }
-        ]
+        ],
+        display: true,
     }
 
     removeHandler = (id) => {
@@ -117,17 +121,21 @@ class App extends Component {
         console.log('App.js render.')
         return (
             <div>
-                <NavBar totalItems={this.state.products.length} />
+                {/* <NavBar totalItems={this.state.products.length} /> */}
                 <div className={styles.container}>
-                    <Products
+                    {/* <Products
                         products={this.state.products}
                         onRemove={this.removeHandler}
                         onDecreament={this.decreamentHandler}
                         onIncreament={this.increamentHandler}
                         onChange={this.changeHandler}
-                    />
-                    {/* <Hook Counter /> */}
+                    /> */}
+                    {/* <HookCounter /> */}
                     {/* <ClassCounter /> */}
+                    {/* <FunctionalCounter /> */}
+                    <button onClick={() => { this.setState({ display: !this.state.display }) }}>{this.state.display ? 'Hide' : 'Show'}</button>
+                    {/* {this.state.display && <ClassTimer />} */}
+                    {this.state.display && <FunctionalTimer />}
                     {/* <HookObject /> */}
                     {/* <HookArray /> */}
                 </div>
