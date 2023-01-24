@@ -10,6 +10,7 @@ import NavBar from "./components/NavBar/NavBar";
 import FunctionalCounter from "./components/FunctionalCounter";
 import ClassTimer from "./components/ClassTimer";
 import FunctionalTimer from "./components/FunctionalTimer";
+import Wrapper from "./components/HOC/Wrapper";
 // Class base component
 class App extends Component {
 
@@ -120,26 +121,29 @@ class App extends Component {
     render() {
         console.log('App.js render.')
         return (
-            <div>
+            // <div>
+            // Use higher order component (HOC) instead of fragment
+            <Wrapper class={styles.container}>
                 {/* <NavBar totalItems={this.state.products.length} /> */}
-                <div className={styles.container}>
-                    {/* <Products
-                        products={this.state.products}
-                        onRemove={this.removeHandler}
-                        onDecreament={this.decreamentHandler}
-                        onIncreament={this.increamentHandler}
-                        onChange={this.changeHandler}
-                    /> */}
-                    {/* <HookCounter /> */}
-                    {/* <ClassCounter /> */}
-                    {/* <FunctionalCounter /> */}
-                    <button onClick={() => { this.setState({ display: !this.state.display }) }}>{this.state.display ? 'Hide' : 'Show'}</button>
-                    {/* {this.state.display && <ClassTimer />} */}
-                    {this.state.display && <FunctionalTimer />}
-                    {/* <HookObject /> */}
-                    {/* <HookArray /> */}
-                </div>
-            </div>
+                {/* <div className={styles.container}> */}
+                <Products
+                    products={this.state.products}
+                    onRemove={this.removeHandler}
+                    onDecreament={this.decreamentHandler}
+                    onIncreament={this.increamentHandler}
+                    onChange={this.changeHandler}
+                />
+                {/* <HookCounter /> */}
+                {/* <ClassCounter /> */}
+                {/* <FunctionalCounter /> */}
+                {/* <button onClick={() => { this.setState({ display: !this.state.display }) }}>{this.state.display ? 'Hide' : 'Show'}</button> */}
+                {/* {this.state.display && <ClassTimer />} */}
+                {/* {this.state.display && <FunctionalTimer />} */}
+                {/* <HookObject /> */}
+                {/* <HookArray /> */}
+                {/* </div> */}
+            </Wrapper>
+            // </div>
         );
     }
 
