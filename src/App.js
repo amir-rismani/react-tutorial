@@ -123,7 +123,7 @@ class App extends Component {
         return (
             // Use higher order component (HOC) instead of fragment
             // <Wrapper class={styles.container}>
-            <div>
+            <>
                 {/* <NavBar totalItems={this.state.products.length} /> */}
                 {/* <div className={styles.container}> */}
                 <Products
@@ -142,7 +142,7 @@ class App extends Component {
                 {/* <HookObject /> */}
                 {/* <HookArray /> */}
                 {/* </div> */}
-            </div >
+            </ >
             // </Wrapper>
         );
     }
