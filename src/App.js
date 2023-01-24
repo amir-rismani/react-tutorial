@@ -119,11 +119,11 @@ class App extends Component {
 
     // 2nd lifecycle method - Mounting && Updating
     render() {
-        console.log('App.js render.')
+        console.log('App.js render.', this.props)
         return (
-            // <div>
             // Use higher order component (HOC) instead of fragment
-            <Wrapper class={styles.container}>
+            // <Wrapper class={styles.container}>
+            <div>
                 {/* <NavBar totalItems={this.state.products.length} /> */}
                 {/* <div className={styles.container}> */}
                 <Products
@@ -142,8 +142,8 @@ class App extends Component {
                 {/* <HookObject /> */}
                 {/* <HookArray /> */}
                 {/* </div> */}
-            </Wrapper>
-            // </div>
+            </div >
+            // </Wrapper>
         );
     }
 
@@ -171,4 +171,4 @@ class App extends Component {
 //     );
 // }
 
-export default App;
+export default Wrapper(App, styles.container);
