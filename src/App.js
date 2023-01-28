@@ -13,7 +13,7 @@ import FunctionalTimer from "./components/FunctionalTimer";
 import Wrapper from "./components/HOC/Wrapper";
 import ClickCounter from "./components/HocCounter/ClickCounter";
 import HoverCounter from "./components/HocCounter/HoverCounter";
-import ParentComponent from "./components/PureComponent/ParentComponent";
+import ParentComponent from "./components/PureMemoComponent/ParentComponent";
 // Class base component
 class App extends Component {
 

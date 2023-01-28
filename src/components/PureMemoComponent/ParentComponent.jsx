@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import MemoComponent from './MemoComponent';
 import InheritedPureComponent from './PureComponent';
 import RegularComponent from './RegularComponent';
 class ParentComponent extends Component {
@@ -15,7 +16,8 @@ class ParentComponent extends Component {
         return (
             <div>
                 <RegularComponent name={this.state.name}/>
-                <InheritedPureComponent name={this.state.name}/>
+                {/* <InheritedPureComponent name={this.state.name}/> */}
+                <MemoComponent name={this.state.name}/>
             </div>
         );
     }
