@@ -13,6 +13,7 @@ import FunctionalTimer from "./components/FunctionalTimer";
 import Wrapper from "./components/HOC/Wrapper";
 import ClickCounter from "./components/HocCounter/ClickCounter";
 import HoverCounter from "./components/HocCounter/HoverCounter";
+import ParentComponent from "./components/PureComponent/ParentComponent";
 // Class base component
 class App extends Component {
 
@@ -126,8 +127,9 @@ class App extends Component {
             // Use higher order component (HOC) instead of fragment
             // <Wrapper class={styles.container}>
             <>
-                <ClickCounter />
-                <HoverCounter />
+                <ParentComponent />
+                {/* <ClickCounter />
+                <HoverCounter /> */}
                 {/* <NavBar totalItems={this.state.products.length} /> */}
                 {/* <div className={styles.container}> */}
                 {/* <Products
