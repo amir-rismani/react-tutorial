@@ -14,6 +14,8 @@ import Wrapper from "./components/HOC/Wrapper";
 import ClickCounter from "./components/HocCounter/ClickCounter";
 import HoverCounter from "./components/HocCounter/HoverCounter";
 import ParentComponent from "./components/PureMemoComponent/ParentComponent";
+import ClassRef from "./components/Ref/ClassRef";
+import FunctionalRef from "./components/Ref/FunctionalRef";
 // Class base component
 class App extends Component {
 
@@ -127,7 +129,9 @@ class App extends Component {
             // Use higher order component (HOC) instead of fragment
             // <Wrapper class={styles.container}>
             <>
-                <ParentComponent />
+                <FunctionalRef />
+                {/* <ClassRef /> */}
+                {/* <ParentComponent /> */}
                 {/* <ClickCounter />
                 <HoverCounter /> */}
                 {/* <NavBar totalItems={this.state.products.length} /> */}
