@@ -1,4 +1,5 @@
-import { useRef, useEffect, useState } from "react";
+import { useRef, useEffect, useState, useContext } from "react";
+import { userContext } from "../../App";
 
 // Use cases of useRef hook
 // 1. DOM access.
@@ -24,6 +25,10 @@ const FunctionalRef = () => {
         // Does not re-render component.
         previousNumber.current = number;
     },[number]);
+
+    // Using context
+    const user = useContext(userContext);
+    console.log(`userContext is ${user}`);
 
     const changeHandler = (event) => {
         setValue(event.target.value)

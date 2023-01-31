@@ -1,7 +1,8 @@
 // import "./Product.css";
-import { Component, useEffect, useState } from "react";
+import { Component, useContext, useEffect, useState } from "react";
 import styles from "./Product.module.css"
 import { BiTrash } from "react-icons/bi";
+import { userContext } from "../../App";
 // Object destructuring
 // const Product = ({ click, product, onRemove, onDecreament, onIncreament, onChange, children }) => {
 // class Product extends Component {
@@ -69,6 +70,10 @@ const Product = ({ click, product, onRemove, onDecreament, onIncreament, onChang
             console.log('Product.js useEffect CWUM...')
         };
     }, [product]);
+
+    // Using context
+    const user = useContext(userContext);
+    console.log(`userContext is ${user}`);
 
     return (
         <div className={styles.product} onClick={click} >
