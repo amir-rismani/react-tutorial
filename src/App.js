@@ -16,6 +16,8 @@ import HoverCounter from "./components/HocCounter/HoverCounter";
 import ParentComponent from "./components/PureMemoComponent/ParentComponent";
 import ClassRef from "./components/Ref/ClassRef";
 import FunctionalRef from "./components/Ref/FunctionalRef";
+import CounterProvider from "./components/Context/CounterProvider";
+import CounterIncrease from "./components/Context/CounterIncrease";
 
 // Context api
 // 1. create context by React.createContext
@@ -138,31 +140,35 @@ class App extends Component {
             // Use higher order component (HOC) instead of fragment
             // <Wrapper class={styles.container}>
             <>
-                <userContext.Provider value={"Amir"}>
-                    <FunctionalRef />
-                    {/* <ClassRef /> */}
-                    {/* <ParentComponent /> */}
-                    {/* <ClickCounter />
+                <CounterProvider>
+                    <CounterIncrease />
+                </CounterProvider>
+                {/* Provider Context */}
+                {/* <userContext.Provider value={"Amir"}> */}
+                {/* <FunctionalRef /> */}
+                {/* <ClassRef /> */}
+                {/* <ParentComponent /> */}
+                {/* <ClickCounter />
                     <HoverCounter /> */}
-                    {/* <NavBar totalItems={this.state.products.length} /> */}
-                    {/* <div className={styles.container}> */}
-                    <Products
+                {/* <NavBar totalItems={this.state.products.length} /> */}
+                {/* <div className={styles.container}> */}
+                {/* <Products
                         products={this.state.products}
                         onRemove={this.removeHandler}
                         onDecreament={this.decreamentHandler}
                         onIncreament={this.increamentHandler}
                         onChange={this.changeHandler}
-                    />
-                    {/* <HookCounter /> */}
-                    {/* <ClassCounter /> */}
-                    {/* <FunctionalCounter /> */}
-                    {/* <button onClick={() => { this.setState({ display: !this.state.display }) }}>{this.state.display ? 'Hide' : 'Show'}</button> */}
-                    {/* {this.state.display && <ClassTimer />} */}
-                    {/* {this.state.display && <FunctionalTimer />} */}
-                    {/* <HookObject /> */}
-                    {/* <HookArray /> */}
-                    {/* </div> */}
-                </userContext.Provider>
+                    /> */}
+                {/* <HookCounter /> */}
+                {/* <ClassCounter /> */}
+                {/* <FunctionalCounter /> */}
+                {/* <button onClick={() => { this.setState({ display: !this.state.display }) }}>{this.state.display ? 'Hide' : 'Show'}</button> */}
+                {/* {this.state.display && <ClassTimer />} */}
+                {/* {this.state.display && <FunctionalTimer />} */}
+                {/* <HookObject /> */}
+                {/* <HookArray /> */}
+                {/* </div> */}
+                {/* </userContext.Provider> */}
             </ >
             // </Wrapper>
         );
