@@ -1,12 +1,13 @@
-import { useCount, useCountAction } from "./CounterProvider";
+import { useCount, useCountActions } from "./CounterProvider";
 
 const CounterIncrease = () => {
     const count = useCount();
-    const setCount = useCountAction();
+    const { increaseOne, increaseFive } = useCountActions();
     return (
         <>
             <p>Counter is {count}</p>
-            <button onClick={() => setCount(prevCount => prevCount + 1)}>Increase</button>
+            <button onClick={increaseOne}>Increase 1</button>
+            <button onClick={increaseFive}>Increase 5</button>
         </>
     );
 }

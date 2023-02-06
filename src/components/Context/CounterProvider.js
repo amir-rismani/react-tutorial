@@ -18,4 +18,16 @@ export default CounterProvider;
 
 // Custom React hook
 export const useCount = () => useContext(counterContext);
-export const useCountAction = () => useContext(counterContextDispatcher);
+export const useCountActions = () => {
+    const setCount = useContext(counterContextDispatcher);
+
+    const increaseOne = () => {
+        setCount(prevCount => prevCount + 1)
+    }
+
+    const increaseFive = () => {
+        setCount(prevCount => prevCount + 5)
+    }
+
+    return { increaseOne, increaseFive }
+}
