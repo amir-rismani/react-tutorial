@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 
 export const counterContext = React.createContext();
 export const counterContextDispatcher = React.createContext();
@@ -15,3 +15,7 @@ const CounterProvider = ({ children }) => {
 }
 
 export default CounterProvider;
+
+// Custom React hook
+export const useCount = () => useContext(counterContext);
+export const useCountAction = () => useContext(counterContextDispatcher);

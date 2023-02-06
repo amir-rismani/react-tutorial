@@ -1,10 +1,9 @@
 import { useContext } from "react";
-import { counterContext, counterContextDispatcher } from "./CounterProvider";
+import { useCount, useCountAction } from "./CounterProvider";
 
 const CounterIncrease = () => {
-    const count = useContext(counterContext)
-    const setCount = useContext(counterContextDispatcher);
-
+    const count = useCount();
+    const setCount = useCountAction();
     return (
         <>
             <p>Counter is {count}</p>
