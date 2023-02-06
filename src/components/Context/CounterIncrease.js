@@ -1,4 +1,3 @@
-import { useContext } from "react";
 import { useCount, useCountAction } from "./CounterProvider";
 
 const CounterIncrease = () => {
@@ -7,7 +6,7 @@ const CounterIncrease = () => {
     return (
         <>
             <p>Counter is {count}</p>
-            <button onClick={() => setCount(count + 1)}>Increase</button>
+            <button onClick={() => setCount(prevCount => prevCount + 1)}>Increase</button>
         </>
     );
 }
