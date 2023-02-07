@@ -3,6 +3,7 @@ import { Component, useContext, useEffect, useState } from "react";
 import styles from "./Product.module.css"
 import { BiTrash } from "react-icons/bi";
 import { userContext } from "../../App";
+import { useProductActions } from "../Context/ProductsProvider";
 // Object destructuring
 // const Product = ({ click, product, onRemove, onDecreament, onIncreament, onChange, children }) => {
 // class Product extends Component {
@@ -44,8 +45,9 @@ import { userContext } from "../../App";
 //     }
 // }
 
-const Product = ({ click, product, onRemove, onDecreament, onIncreament, onChange, children }) => {
+const Product = ({ click, product, children }) => {
     console.log('Product.js render...')
+    const { removeHandler, decreamentHandler, increamentHandler, changeHandler } = useProductActions();
 
     // Generally CDM, CDU and CWUM implemented in useEffect.
     // useEffect(() => {
@@ -75,20 +77,21 @@ const Product = ({ click, product, onRemove, onDecreament, onIncreament, onChang
     const user = useContext(userContext);
     console.log(`userContext is ${user}`);
 
+
     return (
         <div className={styles.product} onClick={click} >
             <p className={styles.name} > name: {product.name}</p>
             {<p className={styles.price}> price: {product.price}</p>}
             {children}
-            <input type="text" onChange={onChange} value={product.name} />
+            <input type="text" onChange={(event) => changeHandler(event, product.id)} value={product.name} />
             <span className={styles.quantity}>
-                <button className={`${styles.button} ${product.quantity === 1 && styles.remove}`} onClick={onDecreament}>
+                <button className={`${styles.button} ${product.quantity === 1 && styles.remove}`} onClick={() => decreamentHandler(product.id)}>
                     {product.quantity > 1 ? '-' : <BiTrash />}
                 </button>
                 <span className={styles.value}>{product.quantity}</span>
-                <button className={styles.button} onClick={onIncreament}>+</button>
+                <button className={styles.button} onClick={() => increamentHandler(product.id)}>+</button>
             </span>
-            <span className={styles.delete} onClick={onRemove}>Delete</span>
+            <span className={styles.delete} onClick={() => removeHandler(product.id)}>Delete</span>
         </div >
     );
 }
