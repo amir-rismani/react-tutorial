@@ -20,6 +20,7 @@ import CounterProvider from "./components/Context/CounterProvider";
 import CounterIncrease from "./components/Context/CounterIncrease";
 import ProductProvider from "./components/Context/ProductsProvider";
 import Products from "./components/Context/Products/Products";
+import CounterReducer from "./components/Reducer/CounterReducer";
 
 // Context api
 // 1. create context by React.createContext
@@ -194,9 +195,10 @@ export const userContext = React.createContext()
 const App = () => {
     return (
         <div>
-            <ProductProvider>
+            {/* <ProductProvider>
                 <Products />
-            </ProductProvider>
+            </ProductProvider> */}
+            <CounterReducer />
         </div>
     );
 }
