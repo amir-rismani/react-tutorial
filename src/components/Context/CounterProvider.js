@@ -1,13 +1,29 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useReducer, useState } from "react";
 
 export const counterContext = React.createContext();
 export const counterContextDispatcher = React.createContext();
 
+const initialState = 0
+
+const reducer = (state, action) => {
+    console.log(state, action);
+    switch (action.type) {
+        case 'increament':
+            return state + action.value;
+        case 'decreament':
+            return state - action.value;
+        case 'reset':
+            return initialState;
+        default:
+            return state;
+    }
+}
+
 const CounterProvider = ({ children }) => {
-    const [count, setCount] = useState(0)
+    const [count, dispatch] = useReducer(reducer, initialState)
     return (
         <counterContext.Provider value={count}>
-            <counterContextDispatcher.Provider value={setCount}>
+            <counterContextDispatcher.Provider value={dispatch}>
                 {children}
             </counterContextDispatcher.Provider>
         </counterContext.Provider>
@@ -18,16 +34,4 @@ export default CounterProvider;
 
 // Custom React hook
 export const useCount = () => useContext(counterContext);
-export const useCountActions = () => {
-    const setCount = useContext(counterContextDispatcher);
-
-    const increaseOne = () => {
-        setCount(prevCount => prevCount + 1)
-    }
-
-    const increaseFive = () => {
-        setCount(prevCount => prevCount + 5)
-    }
-
-    return { increaseOne, increaseFive }
-}
+export const useCountActions = () => useContext(counterContextDispatcher);

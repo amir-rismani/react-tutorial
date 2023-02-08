@@ -195,10 +195,14 @@ export const userContext = React.createContext()
 const App = () => {
     return (
         <div>
+            <CounterProvider>
+                <CounterIncrease />
+            </CounterProvider>
+
             {/* <ProductProvider>
                 <Products />
             </ProductProvider> */}
-            <CounterReducer />
+            {/* <CounterReducer /> */}
         </div>
     );
 }
