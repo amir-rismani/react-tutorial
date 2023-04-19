@@ -1,4 +1,4 @@
-import { useProducts } from "../ProductsProvider";
+import { useProducts } from "../../Providers/ProductsProvider";
 import Product from "../../Product/Product";
 
 const Products = () => {

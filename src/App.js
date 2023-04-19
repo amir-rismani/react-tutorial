@@ -18,7 +18,7 @@ import ClassRef from "./components/Ref/ClassRef";
 import FunctionalRef from "./components/Ref/FunctionalRef";
 import CounterProvider from "./components/Context/CounterProvider";
 import CounterIncrease from "./components/Context/CounterIncrease";
-import ProductProvider from "./components/Context/ProductsProvider";
+import ProductProvider from "./components/Providers/ProductsProvider";
 import Products from "./components/Context/Products/Products";
 import CounterReducer from "./components/Reducer/CounterReducer";
 
@@ -195,14 +195,10 @@ export const userContext = React.createContext()
 const App = () => {
     return (
         <div>
-            <CounterProvider>
-                <CounterIncrease />
-            </CounterProvider>
-
-            {/* <ProductProvider>
+            <ProductProvider>
+                <NavBar />
                 <Products />
-            </ProductProvider> */}
-            {/* <CounterReducer /> */}
+            </ProductProvider>
         </div>
     );
 }

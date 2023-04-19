@@ -1,9 +1,9 @@
 // import "./Product.css";
-import { Component, useContext, useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
 import styles from "./Product.module.css"
 import { BiTrash } from "react-icons/bi";
 import { userContext } from "../../App";
-import { useProductActions } from "../Context/ProductsProvider";
+import { useProductActions } from "../Providers/ProductsProvider";
 // Object destructuring
 // const Product = ({ click, product, onRemove, onDecreament, onIncreament, onChange, children }) => {
 // class Product extends Component {
