@@ -47,7 +47,7 @@ const reducer = (state, action) => {
             productLists[index] = product;
             return productLists;
         case 'filter':
-            const size = action.event.target.value;
+            const size = action.selectedOption.value;
             if (!size) {
                 return productsData
             }

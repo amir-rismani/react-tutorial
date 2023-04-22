@@ -1,0 +1,15 @@
+.filter{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 50rem;
+    margin: auto;
+    gap: 1rem;
+}
+
+.size{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 1rem;
+}
