@@ -82,17 +82,19 @@ const Product = ({ click, product, children }) => {
     return (
         <div className={styles.product} onClick={click} >
             <p className={styles.name} > name: {product.name}</p>
-            {<p className={styles.price}> price: {product.price}</p>}
-            {children}
-            <input type="text" onChange={(event) => dispatch({ type: 'change', event, productId: product.id })} value={product.name} />
-            <span className={styles.quantity}>
-                <button className={`${styles.button} ${product.quantity === 1 && styles.remove}`} onClick={() => dispatch({ type: 'decrement', productId: product.id })}>
-                    {product.quantity > 1 ? '-' : <BiTrash />}
-                </button>
-                <span className={styles.value}>{product.quantity}</span>
-                <button className={styles.button} onClick={() => dispatch({ type: 'increment', productId: product.id })}>+</button>
-            </span>
-            <span className={styles.delete} onClick={() => dispatch({ type: 'remove', productId: product.id })}>Delete</span>
+            <div className={styles.meta}>
+                {<p className={styles.price}> price: {product.price}</p>}
+                {children}
+                {/* <input type="text" onChange={(event) => dispatch({ type: 'change', event, productId: product.id })} value={product.name} /> */}
+                <span className={styles.quantity}>
+                    <button className={`${styles.button} ${product.quantity === 1 && styles.remove}`} onClick={() => dispatch({ type: 'decrement', productId: product.id })}>
+                        {product.quantity > 1 ? '-' : <BiTrash />}
+                    </button>
+                    <span className={styles.value}>{product.quantity}</span>
+                    <button className={styles.button} onClick={() => dispatch({ type: 'increment', productId: product.id })}>+</button>
+                </span>
+                <span className={styles.delete} onClick={() => dispatch({ type: 'remove', productId: product.id })}>Delete</span>
+            </div>
         </div >
     );
 }

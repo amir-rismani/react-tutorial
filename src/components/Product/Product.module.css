@@ -5,13 +5,23 @@
     padding: 15px;
     flex-grow: 1;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
+    gap: 2rem;
+}
+
+.meta{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    min-width: 230px;
 }
 
 .name{
     font-weight: bold;
     color: red;
+    text-align: left;
 }
 .price{
     font-weight: bold;

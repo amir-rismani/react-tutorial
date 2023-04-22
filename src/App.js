@@ -23,7 +23,7 @@ import ProductProvider from "./components/Providers/ProductsProvider";
 import Products from "./components/Context/Products/Products";
 import CounterReducer from "./components/Reducer/CounterReducer";
 import ProductsProviderReducer from "./components/Providers/ProductsProviderReducer";
-
+import Filter from "./components/Filter/Filter"
 // Context api
 // 1. create context by React.createContext
 // 2. export this
@@ -196,9 +196,10 @@ export const userContext = React.createContext()
 // Function base component
 const App = () => {
     return (
-        <div>
+        <div className={styles.container}>
             <ProductsProviderReducer>
                 <NavBar />
+                <Filter />
                 <Products />
             </ProductsProviderReducer>
         </div>

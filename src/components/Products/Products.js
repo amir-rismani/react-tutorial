@@ -127,7 +127,6 @@ class Products extends Component {
             // Use fragment instead container tag
             // Fragment not displaying as a tag   
             <Fragment>
-                {/* <div> */}
                 <h2>Cart</h2>
                 {/* Raising Event: Pass a function into a component; and then, when the component handles an event, it simply calls the function handler*/}
                 {/* Raising Event must be use where is states. */}
@@ -151,7 +150,6 @@ class Products extends Component {
                 {/* <Product name="Odoo framework" price="120" key="87451" removeHandler={() => this.removeHandler("87451")} >
                     <p>discount: 15%</p>
                 </Product> */}
-                {/* </div> */}
             </Fragment >
         );
     }
