@@ -42,8 +42,8 @@ class Products extends Component {
     // constructor(props) {
     //     super(props)
     // this.removeHandler = this.removeHandler.bind(this);
-    // this.decreamentHandler = this.decreamentHandler.bind(this);
-    // this.increamentHandler = this.increamentHandler.bind(this);
+    // this.decrementHandler = this.decrementHandler.bind(this);
+    // this.incrementHandler = this.incrementHandler.bind(this);
     // this.removeHandler = this.removeHandler.bind(this);
     // }
 
@@ -76,7 +76,7 @@ class Products extends Component {
     //     })
     // }
 
-    // decreamentHandler(id) {
+    // decrementHandler(id) {
     //     const products = [...this.state.products];
     //     const findedProduct = products.find(product => product.id === id);
     //     if (findedProduct.quantity === 1) {
@@ -89,7 +89,7 @@ class Products extends Component {
     //     })
     // }
 
-    // increamentHandler(id) {
+    // incrementHandler(id) {
     //     const products = [...this.state.products];
     //     const findedProduct = products.find(product => product.id === id);
     //     findedProduct.quantity++;
@@ -122,7 +122,7 @@ class Products extends Component {
         // this.state.products.length && <div>Product is exist...</div>
 
         // Object destructuring
-        const { products, onRemove, onChange, onIncreament, onDecreament } = this.props;
+        const { products, onRemove, onChange, onincrement, ondecrement } = this.props;
         return (
             // Use fragment instead container tag
             // Fragment not displaying as a tag   
@@ -139,8 +139,8 @@ class Products extends Component {
                                 product={product}
                                 key={product.id}
                                 onRemove={() => onRemove(product.id)}
-                                onDecreament={() => onDecreament(product.id)}
-                                onIncreament={() => onIncreament(product.id)}
+                                ondecrement={() => ondecrement(product.id)}
+                                onincrement={() => onincrement(product.id)}
                                 onChange={(event) => onChange(event, product.id)}
                             />) :
                         <div>Product is not exist...</div>}

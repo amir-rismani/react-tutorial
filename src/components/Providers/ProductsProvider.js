@@ -31,7 +31,7 @@ export const useProductActions = () => {
         setProducts(filteredProducts);
     }
 
-    const decreamentHandler = (id) => {
+    const decrementHandler = (id) => {
         const index = products.findIndex(product => product.id === id);
         const product = { ...products[index] };
         if (product.quantity === 1) {
@@ -44,11 +44,11 @@ export const useProductActions = () => {
         setProducts(productLists);
     }
 
-    const increamentHandler = (id) => {
+    const incrementHandler = (id) => {
         // 1. Find index item on state.
         const index = products.findIndex(product => product.id === id);
 
-        // 2. Clone product item on state and increament quantity.
+        // 2. Clone product item on state and increment quantity.
         const product = { ...products[index] };
         product.quantity++;
 
@@ -69,6 +69,6 @@ export const useProductActions = () => {
         setProducts(productLists);
     }
 
-    return { removeHandler, decreamentHandler, increamentHandler, changeHandler }
+    return { removeHandler, decrementHandler, incrementHandler, changeHandler }
 
 }

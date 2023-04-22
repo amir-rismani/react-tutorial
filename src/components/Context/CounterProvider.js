@@ -8,9 +8,9 @@ const initialState = 0
 const reducer = (state, action) => {
     console.log(state, action);
     switch (action.type) {
-        case 'increament':
+        case 'increment':
             return state + action.value;
-        case 'decreament':
+        case 'decrement':
             return state - action.value;
         case 'reset':
             return initialState;

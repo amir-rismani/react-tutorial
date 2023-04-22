@@ -1,8 +1,8 @@
 import withCounter from "../HOC/withCounter";
 
-const HoverCounter = ({counter, increamentHandler}) => {
+const HoverCounter = ({counter, incrementHandler}) => {
     return ( 
-        <h1 onMouseOver={increamentHandler}>Hoverd {counter} times.</h1>
+        <h1 onMouseOver={incrementHandler}>Hoverd {counter} times.</h1>
     );
 }
  

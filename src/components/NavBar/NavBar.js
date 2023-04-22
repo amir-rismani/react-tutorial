@@ -1,5 +1,5 @@
 import styles from './NavBar.module.css'
-import { useProducts } from '../Providers/ProductsProvider';
+import { useProducts } from '../Providers/ProductsProviderReducer';
 // Object destructuring
 const NavBar = () => {
     const products = useProducts();

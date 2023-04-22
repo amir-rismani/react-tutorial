@@ -1,8 +1,8 @@
 import withCounter from "../HOC/withCounter";
 
-const ClickCounter = ({counter, increamentHandler}) => {
+const ClickCounter = ({counter, incrementHandler}) => {
     return ( 
-        <h1 onClick={increamentHandler}>Clicked {counter} times.</h1>
+        <h1 onClick={incrementHandler}>Clicked {counter} times.</h1>
     );
 }
  

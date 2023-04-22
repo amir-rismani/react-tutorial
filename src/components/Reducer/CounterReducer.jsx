@@ -10,13 +10,13 @@ import { useReducer } from "react";
 // const reducer = (state, action) => {
 //     console.log(state, action);
 //     switch (action.type) {
-//         case 'increament':
+//         case 'increment':
 //             return {...state, firstCounter: state.firstCounter + action.value};
-//         case 'decreament':
+//         case 'decrement':
 //             return {...state, firstCounter: state.firstCounter - action.value};
-//         case 'increament2':
+//         case 'increment2':
 //             return {...state, secondCounter: state.secondCounter + action.value};
-//         case 'decreament2':
+//         case 'decrement2':
 //             return {...state, secondCounter: state.secondCounter - action.value};
 //         case 'reset':
 //             return initialState;
@@ -31,13 +31,13 @@ const initialState = 0
 const reducer = (state, action) => {
     console.log(state, action);
     switch (action.type) {
-        case 'increament':
+        case 'increment':
             return state + action.value;
-        case 'decreament':
+        case 'decrement':
             return state - action.value;
-        case 'increament2':
+        case 'increment2':
             return state + action.value;
-        case 'decreament2':
+        case 'decrement2':
             return state - action.value;
         case 'reset':
             return initialState;
@@ -63,14 +63,14 @@ const CounterReducer = () => {
         <br/>
             Welcome to Counter Reducer,<br/> First Counter is {count}<br/>Second Counter is {secondCount}
             <br/>
-            <button onClick={()=>dispatch({type:'increament', value:1})}>Increament One</button>
-            <button onClick={()=>dispatch({type:'increament', value:5})}>Increament Five</button>
-            <button onClick={()=>dispatch({type:'decreament', value:1})}>Decreament</button>
+            <button onClick={()=>dispatch({type:'increment', value:1})}>increment One</button>
+            <button onClick={()=>dispatch({type:'increment', value:5})}>increment Five</button>
+            <button onClick={()=>dispatch({type:'decrement', value:1})}>decrement</button>
             <button onClick={()=>dispatch({type:'reset'})}>Reset</button>
             <br/>
-            <button onClick={()=>secoundDispatch({type:'increament2', value:1})}>Increament One 2</button>
-            <button onClick={()=>secoundDispatch({type:'increament2', value:5})}>Increament Five 2</button>
-            <button onClick={()=>secoundDispatch({type:'decreament2', value:1})}>Decreament 2</button>
+            <button onClick={()=>secoundDispatch({type:'increment2', value:1})}>increment One 2</button>
+            <button onClick={()=>secoundDispatch({type:'increment2', value:5})}>increment Five 2</button>
+            <button onClick={()=>secoundDispatch({type:'decrement2', value:1})}>decrement 2</button>
             <button onClick={()=>secoundDispatch({type:'reset'})}>Reset</button>
             <br/>
         </>

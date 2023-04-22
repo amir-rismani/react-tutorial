@@ -1,13 +1,13 @@
 import { useState } from "react";
 
-const withCounter = (WrappedComponent, increamentValue) => {
+const withCounter = (WrappedComponent, incrementValue) => {
     const UpdatedComponent = (props) => {
         const [counter, setCounter] = useState(0)
-        const increamentHandler = () => {
-            setCounter(counter + increamentValue)
+        const incrementHandler = () => {
+            setCounter(counter + incrementValue)
         }
 
-        return <WrappedComponent counter={counter} increamentHandler={increamentHandler} {...props} />
+        return <WrappedComponent counter={counter} incrementHandler={incrementHandler} {...props} />
     }
     return UpdatedComponent
 }

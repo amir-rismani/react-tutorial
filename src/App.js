@@ -19,8 +19,10 @@ import FunctionalRef from "./components/Ref/FunctionalRef";
 import CounterProvider from "./components/Context/CounterProvider";
 import CounterIncrease from "./components/Context/CounterIncrease";
 import ProductProvider from "./components/Providers/ProductsProvider";
+
 import Products from "./components/Context/Products/Products";
 import CounterReducer from "./components/Reducer/CounterReducer";
+import ProductsProviderReducer from "./components/Providers/ProductsProviderReducer";
 
 // Context api
 // 1. create context by React.createContext
@@ -67,7 +69,7 @@ export const userContext = React.createContext()
 //     })
 // }
 
-// decreamentHandler = (id) => {
+// decrementHandler = (id) => {
 //     // This approach in false. because this mutating state.
 
 //     // const products = [...this.state.products];
@@ -93,7 +95,7 @@ export const userContext = React.createContext()
 //     this.setState({ products });
 // }
 
-// increamentHandler = (id) => {
+// incrementHandler = (id) => {
 //     // This approach in false. because this mutating state.
 
 //     // const products = [...this.state.products];
@@ -107,7 +109,7 @@ export const userContext = React.createContext()
 //     // 1. Find index item on state.
 //     const index = this.state.products.findIndex(product => product.id === id);
 
-//     // 2. Clone product item on state and increament quantity.
+//     // 2. Clone product item on state and increment quantity.
 //     const product = { ...this.state.products[index] };
 //     product.quantity++;
 
@@ -159,8 +161,8 @@ export const userContext = React.createContext()
 //             {/* <Products
 //                     products={this.state.products}
 //                     onRemove={this.removeHandler}
-//                     onDecreament={this.decreamentHandler}
-//                     onIncreament={this.increamentHandler}
+//                     ondecrement={this.decrementHandler}
+//                     onincrement={this.incrementHandler}
 //                     onChange={this.changeHandler}
 //                 /> */}
 //             {/* <HookCounter /> */}
@@ -195,10 +197,10 @@ export const userContext = React.createContext()
 const App = () => {
     return (
         <div>
-            <ProductProvider>
+            <ProductsProviderReducer>
                 <NavBar />
                 <Products />
-            </ProductProvider>
+            </ProductsProviderReducer>
         </div>
     );
 }
