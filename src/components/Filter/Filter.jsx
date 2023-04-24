@@ -3,6 +3,7 @@ import { useProductActions } from "../Providers/ProductsProviderReducer";
 import Select from 'react-select';
 
 import styles from './Filter.module.css'
+import SelectComponent from "../../common/Select/Select";
 
 const filterOptions = [
   { value: '', label: 'All' },
@@ -44,23 +45,20 @@ const Filter = () => {
             <p>
                 Filter products base on:
             </p>
-            <div className={styles.size}>
-                Filter by size: 
-                <Select
-                    value={filter}
-                    onChange={filterHandler}
-                    options={filterOptions}
-                />
-            </div>
-            <div className={styles.size}>
-                Sort by: 
-                <Select
-                    value={sort}
-                    onChange={sortHandler}
-                    options={sortOptions}
-                />
-            </div>
+            
+            <SelectComponent
+                title="Filter by size:"
+                value={filter}
+                onChange={filterHandler}
+                options={filterOptions}
+            />
 
+            <SelectComponent
+                title="Sort by:"
+                value={sort}
+                onChange={sortHandler}
+                options={sortOptions}
+            />
         </div>
     );
 }
