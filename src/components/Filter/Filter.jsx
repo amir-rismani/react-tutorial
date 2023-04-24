@@ -1,9 +1,10 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useProductActions } from "../Providers/ProductsProviderReducer";
 import Select from 'react-select';
 
 import styles from './Filter.module.css'
-const options = [
+
+const filterOptions = [
   { value: '', label: 'All' },
   { value: 's', label: 's' },
   { value: 'm', label: 'm' },
@@ -13,13 +14,29 @@ const options = [
   { value: '3xl', label: '3xl' },
   { value: '*xl', label: '*xl' },
 ];
+const sortOptions = [ 
+  { value: 'highest', label: 'Highest' },
+  { value: 'lowest', label: 'Lowest' },
+];
 
 const Filter = () => {
     const dispatch = useProductActions();
-    const [value, setValue] = useState("");
-    const changeHandler = (selectedOption) => {
+    const [filter, setFilter] = useState({ value: '', label: 'All'});
+    const [sort, setSort] = useState({ value: 'highest', label: 'Highest' });
+
+    useEffect(()=>{
+        dispatch({type: 'sort', selectedOption:sort});
+    },[sort]);
+
+    const filterHandler = (selectedOption) => {
         dispatch({type: 'filter', selectedOption});
-        setValue(selectedOption)
+        dispatch({type: 'sort', selectedOption:sort});
+        setFilter(selectedOption)
+    }
+
+    const sortHandler = (selectedOption) => {
+        dispatch({type: 'sort', selectedOption});
+        setSort(selectedOption)
     }
 
     return ( 
@@ -29,22 +46,21 @@ const Filter = () => {
             </p>
             <div className={styles.size}>
                 Filter by size: 
-                {/* <select onChange={changeHandler} value={value}>
-                    <option value="">All</option>
-                    <option value="s">s</option>
-                    <option value="m">m</option>
-                    <option value="l">l</option>
-                    <option value="xl">xl</option>
-                    <option value="2xl">2xl</option>
-                    <option value="3xl">3xl</option>
-                    <option value="*xl">*xl</option>
-                </select> */}
                 <Select
-                    value={value}
-                    onChange={changeHandler}
-                    options={options}
+                    value={filter}
+                    onChange={filterHandler}
+                    options={filterOptions}
                 />
             </div>
+            <div className={styles.size}>
+                Sort by: 
+                <Select
+                    value={sort}
+                    onChange={sortHandler}
+                    options={sortOptions}
+                />
+            </div>
+
         </div>
     );
 }
