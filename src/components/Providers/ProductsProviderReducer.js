@@ -65,6 +65,11 @@ const reducer = (state, action) => {
                 sortedProducts = _.orderBy(state, ['price'], ['desc']);
             }
             return sortedProducts
+        case 'search':
+            const value = action.event.target.value;
+            // if (!value) return productState
+            const result = productsData.filter(product => product.name.toLowerCase().includes(value.toLowerCase()))
+            return result
         default:
             return state;
     }

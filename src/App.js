@@ -24,6 +24,7 @@ import Products from "./components/Context/Products/Products";
 import CounterReducer from "./components/Reducer/CounterReducer";
 import ProductsProviderReducer from "./components/Providers/ProductsProviderReducer";
 import Filter from "./components/Filter/Filter"
+import SearchBar from "./common/SearchBar/SearchBar";
 // Context api
 // 1. create context by React.createContext
 // 2. export this
@@ -199,8 +200,11 @@ const App = () => {
         <div className={styles.container}>
             <ProductsProviderReducer>
                 <NavBar />
-                <Filter />
-                <Products />
+                <div className={styles.content}>
+                    <SearchBar />
+                    <Filter />
+                    <Products />
+                </div>
             </ProductsProviderReducer>
         </div>
     );

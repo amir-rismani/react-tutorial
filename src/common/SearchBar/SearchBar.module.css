@@ -1,0 +1,23 @@
+.formControl{
+    display: flex;
+    margin: 1rem auto;
+}
+
+.formControl input{
+    width: 100%;
+    height: 38px;
+    background-color: hsl(0, 0%, 100%);
+    outline: none;
+    border: 1px solid hsl(0, 0%, 80%);
+    border-radius: 5px;
+    padding: 0 1rem;
+    font-size: large;
+}
+
+.formControl input:hover {
+    border-color: hsl(0, 0%, 70%);
+}
+
+.formControl input:focus {
+    border-color: hsl(0, 0%, 60%);
+}

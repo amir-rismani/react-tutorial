@@ -7,3 +7,7 @@ body{
     margin: auto;
     text-align: center;
 }
+.content{
+    max-width: 50rem;
+    margin: auto;
+}
