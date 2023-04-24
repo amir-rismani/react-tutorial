@@ -2,13 +2,16 @@ import { useState } from 'react';
 import styles from './SearchBar.module.css'
 import { useProductActions } from '../../components/Providers/ProductsProviderReducer';
 
-const SearchBar = () => {
+const SearchBar = ({filter, sort}) => {
     const [value, setValue] = useState("");
     const dispatch = useProductActions();
     
     const changeHandler = (event) => {
-        dispatch({type:'search', event})
-        setValue(event.target.value)
+        console.log(filter);
+        dispatch({type: 'filter', selectedOption: filter});
+        dispatch({type:'search', event});
+        dispatch({type: 'sort', selectedOption: sort});
+        setValue(event.target.value);
     }
 
     return (

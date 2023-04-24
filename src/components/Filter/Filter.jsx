@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import { useProductActions } from "../Providers/ProductsProviderReducer";
-import Select from 'react-select';
+
+import SearchBar from "../../common/SearchBar/SearchBar";
+import SelectComponent from "../../common/Select/Select";
 
 import styles from './Filter.module.css'
-import SelectComponent from "../../common/Select/Select";
 
 const filterOptions = [
   { value: '', label: 'All' },
@@ -31,7 +32,7 @@ const Filter = () => {
 
     const filterHandler = (selectedOption) => {
         dispatch({type: 'filter', selectedOption});
-        dispatch({type: 'sort', selectedOption:sort});
+        dispatch({type: 'sort', selectedOption: sort});
         setFilter(selectedOption)
     }
 
@@ -41,25 +42,28 @@ const Filter = () => {
     }
 
     return ( 
-        <div className={styles.filter}>
-            <p>
-                Filter products base on:
-            </p>
-            
-            <SelectComponent
-                title="Filter by size:"
-                value={filter}
-                onChange={filterHandler}
-                options={filterOptions}
-            />
+        <section>
+            <SearchBar filter={filter} sort={sort}/>
+            <div className={styles.filter}>
+                <p>
+                    Filter products base on:
+                </p>
 
-            <SelectComponent
-                title="Sort by:"
-                value={sort}
-                onChange={sortHandler}
-                options={sortOptions}
-            />
-        </div>
+                <SelectComponent
+                    title="Filter by size:"
+                    value={filter}
+                    onChange={filterHandler}
+                    options={filterOptions}
+                />
+
+                <SelectComponent
+                    title="Sort by:"
+                    value={sort}
+                    onChange={sortHandler}
+                    options={sortOptions}
+                    />
+            </div>
+        </section>
     );
 }
  

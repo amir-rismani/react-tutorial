@@ -67,8 +67,7 @@ const reducer = (state, action) => {
             return sortedProducts
         case 'search':
             const value = action.event.target.value;
-            // if (!value) return productState
-            const result = productsData.filter(product => product.name.toLowerCase().includes(value.toLowerCase()))
+            const result = state.filter(product => product.name.toLowerCase().includes(value.toLowerCase()))
             return result
         default:
             return state;
